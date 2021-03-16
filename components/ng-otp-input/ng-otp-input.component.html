@@ -1,8 +1,23 @@
-<div class="wrapper {{config.containerClass}}" id="c_{{componentKey}}" *ngIf="otpForm?.controls"
-  [ngStyle]="config.containerStyles">
-  <input [pattern]="config.allowNumbersOnly ? '\\d*' : ''" [type]="inputType" numberOnly [placeholder]="config?.placeholder || ''"
-    [disabledNumberOnly]="!config.allowNumbersOnly" [ngStyle]="config.inputStyles" maxlength="1"
-    class="otp-input {{config.inputClass}}" autocomplete="off" *ngFor="let item of otpForm?.controls | keys;let i=index"
-    [formControl]="otpForm.controls[item]" id="otp_{{i}}_{{componentKey}}" (keydown)="onKeyDown($event)"
-    (keyup)="onKeyUp($event,i)">
+<div
+  *ngIf="otpForm?.controls"
+  [ngStyle]="config.containerStyles"
+  class="wrapper {{ config.containerClass }}"
+  id="c_{{ componentKey }}"
+>
+  <input
+    *ngFor="let item of otpForm?.controls | keys; let i = index"
+    (keydown)="onKeyDown($event, i)"
+    (keyup)="onKeyUp($event)"
+    [disabledNumberOnly]="!config.allowNumbersOnly"
+    [formControl]="otpForm.controls[item]"
+    [ngStyle]="config.inputStyles"
+    [pattern]="config.allowNumbersOnly ? '\\d*' : ''"
+    [placeholder]="config?.placeholder || ''"
+    [type]="inputType"
+    autocomplete="off"
+    class="otp-input {{ config.inputClass }}"
+    id="otp_{{ i }}_{{ componentKey }}"
+    maxlength="1"
+    numberOnly
+  />
 </div>
