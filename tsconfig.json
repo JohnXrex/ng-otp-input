@@ -1,0 +1,10 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "lib": ["es2018", "dom"],
+    "moduleResolution": "node"
+  }
+}
