@@ -16,7 +16,7 @@ export class NumberOnlyDirective {
             ) {
                 return;
             }
-            if (event.shiftKey || event.keyCode < 48 || event.keCode > 57) {
+            if (event.shiftKey || event.keyCode < 48 || event.keyCode > 57) {
                 event.preventDefault();
             }
         }
